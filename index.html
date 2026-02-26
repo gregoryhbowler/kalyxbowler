@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalyx Bowler — Daily Assignments</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface-hover: #222531;
+      --border: #2a2d3a;
+      --text: #e4e4e7;
+      --text-muted: #9ca3af;
+      --accent: #818cf8;
+      --accent-soft: rgba(129, 140, 248, 0.12);
+      --green: #34d399;
+      --green-soft: rgba(52, 211, 153, 0.12);
+      --amber: #fbbf24;
+      --amber-soft: rgba(251, 191, 36, 0.12);
+      --rose: #fb7185;
+      --rose-soft: rgba(251, 113, 133, 0.12);
+      --cyan: #22d3ee;
+      --cyan-soft: rgba(34, 211, 238, 0.12);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    header h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.25rem;
+    }
+
+    .date-badge {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      margin-top: 0.75rem;
+    }
+
+    .assignment-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      transition: background 0.15s ease;
+    }
+
+    .assignment-card:hover {
+      background: var(--surface-hover);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .card-number {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 500;
+      width: 1.75rem;
+      height: 1.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      flex-shrink: 0;
+    }
+
+    .card-number.purple {
+      color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .card-number.green {
+      color: var(--green);
+      background: var(--green-soft);
+    }
+
+    .card-number.amber {
+      color: var(--amber);
+      background: var(--amber-soft);
+    }
+
+    .card-number.rose {
+      color: var(--rose);
+      background: var(--rose-soft);
+    }
+
+    .card-number.cyan {
+      color: var(--cyan);
+      background: var(--cyan-soft);
+    }
+
+    .card-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .card-body {
+      padding-left: 2.5rem;
+      color: var(--text-muted);
+      font-size: 0.925rem;
+    }
+
+    .card-body p {
+      margin-bottom: 0.4rem;
+    }
+
+    .card-body .options {
+      margin-top: 0.5rem;
+    }
+
+    .card-body .option {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      padding: 0.15rem 0;
+    }
+
+    .option-bullet {
+      color: var(--border);
+      flex-shrink: 0;
+    }
+
+    .vocab-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+
+    .vocab-word {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.4rem 0.65rem;
+      text-align: center;
+    }
+
+    .note {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-top: 0.75rem;
+      padding: 0.75rem;
+      background: var(--accent-soft);
+      border-radius: 8px;
+      border-left: 3px solid var(--accent);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Kalyx Bowler</h1>
+      <p style="color: var(--text-muted); font-size: 0.95rem;">Daily Assignments</p>
+      <div class="date-badge">February 26, 2026</div>
+    </header>
+
+    <!-- Assignment 1: In a Nutshell Videos -->
+    <div class="assignment-card">
+      <div class="card-header">
+        <div class="card-number purple">1</div>
+        <div class="card-title">In a Nutshell Videos</div>
+      </div>
+      <div class="card-body">
+        <p>Watch three <em>In a Nutshell</em> videos. Choose one to respond to.</p>
+        <div class="options">
+          <p style="color: var(--text); font-size: 0.85rem; margin-bottom: 0.35rem;">You could:</p>
+          <div class="option"><span class="option-bullet">&mdash;</span> Write a poem about it</div>
+          <div class="option"><span class="option-bullet">&mdash;</span> Write an explanatory retelling of what you learned</div>
+          <div class="option"><span class="option-bullet">&mdash;</span> Create a drawing inspired by what you learned</div>
+          <div class="option"><span class="option-bullet">&mdash;</span> Something else?</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Assignment 2: Song Response -->
+    <div class="assignment-card">
+      <div class="card-header">
+        <div class="card-number green">2</div>
+        <div class="card-title">Song Response</div>
+      </div>
+      <div class="card-body">
+        <p>Choose a song and write about what you think it's saying and how it makes you feel.</p>
+      </div>
+    </div>
+
+    <!-- Assignment 3: Halo Hills Wireframe -->
+    <div class="assignment-card">
+      <div class="card-header">
+        <div class="card-number amber">3</div>
+        <div class="card-title">Halo Hills Website Wireframe</div>
+      </div>
+      <div class="card-body">
+        <p>Draw a wireframe of a hypothetical Halo Hills website. Write a detailed breakdown of all the elements and what purpose they serve.</p>
+        <p>Try not to leave anything important out.</p>
+      </div>
+    </div>
+
+    <!-- Assignment 4: Reading -->
+    <div class="assignment-card">
+      <div class="card-header">
+        <div class="card-number rose">4</div>
+        <div class="card-title">Reading</div>
+      </div>
+      <div class="card-body">
+        <p>Read for 30 minutes.</p>
+      </div>
+    </div>
+
+    <!-- Assignment 5: Vocabulary -->
+    <div class="assignment-card">
+      <div class="card-header">
+        <div class="card-number cyan">5</div>
+        <div class="card-title">Vocabulary</div>
+      </div>
+      <div class="card-body">
+        <p>Choose 7 words from the list below. Look up the definitions and write a sentence using each word correctly.</p>
+        <div class="note">We'll check in next week to see if you can still use them. Then 7 more the week after, and the rest the week after that.</div>
+        <div class="vocab-grid">
+          <div class="vocab-word">Chthonic</div>
+          <div class="vocab-word">Eschaton</div>
+          <div class="vocab-word">Ananke</div>
+          <div class="vocab-word">Kleos</div>
+          <div class="vocab-word">Hylozoism</div>
+          <div class="vocab-word">Nemesis</div>
+          <div class="vocab-word">Aporia</div>
+          <div class="vocab-word">Mimesis</div>
+          <div class="vocab-word">Eudaimonia</div>
+          <div class="vocab-word">Ataraxia</div>
+          <div class="vocab-word">Dichroic</div>
+          <div class="vocab-word">Apotheosis</div>
+          <div class="vocab-word">Psychopomp</div>
+          <div class="vocab-word">Zoetic</div>
+          <div class="vocab-word">Daimonic</div>
+          <div class="vocab-word">Katabasis</div>
+          <div class="vocab-word">Anagnorisis</div>
+          <div class="vocab-word">Peripeteia</div>
+          <div class="vocab-word">Thaumaturgy</div>
+          <div class="vocab-word">Ouroboros</div>
+          <div class="vocab-word">Paleogenesis</div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      kalyxbowler.com
+    </footer>
+  </div>
+</body>
+</html>

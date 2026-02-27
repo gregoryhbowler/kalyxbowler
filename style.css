@@ -263,6 +263,25 @@ header h1 {
   text-align: center;
 }
 
+/* ── Status badge ── */
+
+.status-badge {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  margin-left: auto;
+}
+
+.status-badge.in-progress {
+  color: var(--amber);
+  background: var(--amber-soft);
+}
+
 /* ── Note callout ── */
 
 .note {

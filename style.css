@@ -263,6 +263,12 @@ header h1 {
   text-align: center;
 }
 
+.vocab-word.chosen {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
 /* ── Status badge ── */
 
 .status-badge {

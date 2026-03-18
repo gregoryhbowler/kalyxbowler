@@ -301,6 +301,116 @@ header h1 {
   border-left: 3px solid var(--accent);
 }
 
+/* ── Collapsible reading sections ── */
+
+details.reading-section {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+details.reading-section summary {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--accent);
+  padding: 0.65rem 0.85rem;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  user-select: none;
+}
+
+details.reading-section summary::-webkit-details-marker {
+  display: none;
+}
+
+details.reading-section summary::before {
+  content: '▸';
+  font-size: 0.75rem;
+  transition: transform 0.15s ease;
+}
+
+details.reading-section[open] summary::before {
+  transform: rotate(90deg);
+}
+
+details.reading-section .reading-body {
+  padding: 0 0.85rem 0.85rem;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+  max-height: 500px;
+  overflow-y: auto;
+  border-top: 1px solid var(--border);
+}
+
+details.reading-section .reading-body p {
+  margin-bottom: 0.85rem;
+}
+
+details.reading-section .reading-body p:first-child {
+  margin-top: 0.85rem;
+}
+
+details.reading-section .reading-body blockquote {
+  border-left: 3px solid var(--accent);
+  padding-left: 0.85rem;
+  margin: 0.85rem 0;
+  font-style: italic;
+}
+
+details.reading-section .reading-body h4 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 1.25rem 0 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ── Prompt list ── */
+
+.prompt-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 0.75rem;
+}
+
+.prompt-list li {
+  padding: 0.65rem 0.75rem;
+  margin-bottom: 0.4rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  line-height: 1.55;
+}
+
+.prompt-list .prompt-number {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+  color: var(--accent);
+  margin-right: 0.35rem;
+}
+
+.prompt-list .prompt-title {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.prompt-list .prompt-hint {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-top: 0.25rem;
+}
+
 /* ── Footer ── */
 
 footer {
